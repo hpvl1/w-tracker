@@ -13,7 +13,7 @@ export const useWeightsStore = defineStore('weights', () => {
   };
 
   const deleteWeightItem = (id) => {
-    weights.value = weights.value.filter(el => el.id !== id);
+    weights.value = weights.value.filter((el) => el.id !== id);
   };
 
   watch(
@@ -27,6 +27,6 @@ export const useWeightsStore = defineStore('weights', () => {
   return {
     weights,
     addWeightItem,
-    deleteWeightItem
+    deleteWeightItem,
   };
 });
