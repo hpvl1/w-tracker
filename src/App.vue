@@ -16,7 +16,7 @@ const weightChart = shallowRef(null);
 const weightInput = ref(60.0);
 
 const currentWeight = computed(() => {
-  return weights.weights.sort((a, b) => b.date - a.date)[0] || { weight: 0 };
+  return weights.weights.slice(0).sort((a, b) => b.date - a.date)[0] || { weight: 0 };
 });
 
 onMounted(() => {
