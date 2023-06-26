@@ -1,11 +1,11 @@
-import { defineStore } from 'pinia';
-import { ref, watch } from 'vue';
+import { defineStore } from "pinia";
+import { ref, watch } from "vue";
 
-export const useWeightsStore = defineStore('weights', () => {
+export const useWeightsStore = defineStore("weights", () => {
   const weights = ref([]);
 
-  if (localStorage.getItem('weights')) {
-    weights.value = JSON.parse(localStorage.getItem('weights'));
+  if (localStorage.getItem("weights")) {
+    weights.value = JSON.parse(localStorage.getItem("weights"));
   }
 
   const addWeightItem = (data) => {
@@ -19,9 +19,9 @@ export const useWeightsStore = defineStore('weights', () => {
   watch(
     () => weights,
     (state) => {
-      localStorage.setItem('weights', JSON.stringify(state._value));
+      localStorage.setItem("weights", JSON.stringify(state._value));
     },
-    { deep: true },
+    { deep: true }
   );
 
   return {
