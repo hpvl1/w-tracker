@@ -1,12 +1,12 @@
 <!-- eslint-disable vue/no-side-effects-in-computed-properties -->
 <script setup>
-import { ref, shallowRef, computed, watch, nextTick, onMounted } from 'vue';
-import Chart from 'chart.js/auto';
-import { uid } from 'uid';
+import { ref, shallowRef, computed, watch, nextTick, onMounted } from "vue";
+import Chart from "chart.js/auto";
+import { uid } from "uid";
 
-import { useWeightsStore } from '../store/weights.js';
+import { useWeightsStore } from "../store/weights.js";
 
-import { Delete } from '@element-plus/icons-vue';
+import { Delete } from "@element-plus/icons-vue";
 
 const weights = useWeightsStore();
 
@@ -28,18 +28,20 @@ onMounted(() => {
 });
 
 function renderCharts(weights) {
-  weightChart.value = new Chart(weightChartEl.value.getContext('2d'), {
-    type: 'line',
+  weightChart.value = new Chart(weightChartEl.value.getContext("2d"), {
+    type: "line",
     data: {
       labels: weights
         .sort((a, b) => a.date - b.date)
         .map((weight) => new Date(weight.date).toLocaleDateString()),
       datasets: [
         {
-          label: 'Weight',
-          data: weights.sort((a, b) => a.data - b.data).map((weight) => weight.weight),
-          backgroundColor: 'rgba(255, 105, 180, 0.2)',
-          borderColor: 'rgba(255, 105, 180)',
+          label: "Weight",
+          data: weights
+            .sort((a, b) => a.data - b.data)
+            .map((weight) => weight.weight),
+          backgroundColor: "rgba(255, 105, 180, 0.2)",
+          borderColor: "rgba(255, 105, 180)",
           borderWidth: 1,
           fill: true,
         },
@@ -87,7 +89,7 @@ watch(
   },
   {
     deep: true,
-  },
+  }
 );
 </script>
 
