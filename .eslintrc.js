@@ -26,6 +26,7 @@ module.exports = {
     indent: ['error', 2],
     'comma-spacing': ['error', { before: false, after: true }],
     'vue/no-multi-spaces': 0,
+    'no-unused-vars': 'warn',
     'vue/max-attributes-per-line': [
       'error',
       {
